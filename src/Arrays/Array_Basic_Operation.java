@@ -16,36 +16,26 @@ class operation{
             array[i]=sc.nextInt();
         }
         System.out.println("Choose the operation");
-        System.out.println("1 -> Traversal the array \n 2 -> Get the value\n 3 -> Search the value \n 4 -> Delete the element by index \n 5 -> Delete the element by the value" +
-                "\n 6 -> Delete the whole array \n 7 -> Insert the value \n 8 -> Insert the value at particular index");
+        System.out.println("""
+                 1 -> Traversal the array\s
+                 2 -> Get the value
+                 3 -> Search the value\s
+                 4 -> Delete the element by index\s
+                 5 -> Delete the element by the value
+                 6 -> Delete the whole array\s
+                 7 -> Insert the value\s
+                 8 -> Insert the value at particular index""");
         int choose= sc.nextInt();
-        switch (choose){
-            case 1:
-                traverse(array, size);
-                break;
-            case 2:
-                getvalue(array);
-                break;
-            case 3:
-                search(array);
-                break;
-            case 4:
-                delete(array);
-                break;
-            case 5:
-                delete2(array, size);
-                break;
-            case 6:
-                deletearray(array);
-                break;
-            case 7:
-                insert(array,size);
-                break;
-            case 8:
-                insert2(array);
-                break;
-            default:
-                System.out.println("Sorry wrong choose");
+        switch (choose) {
+            case 1 -> traverse(array, size);
+            case 2 -> getvalue(array);
+            case 3 -> search(array);
+            case 4 -> delete(array);
+            case 5 -> delete2(array, size);
+            case 6 -> deletearray(array);
+            case 7 -> insert(array, size);
+            case 8 -> insert2(array);
+            default -> System.out.println("Sorry wrong choose");
         }
 
     }
@@ -100,7 +90,7 @@ class operation{
     }
 
     // Traverse the array
-    public void traverse(int arr[], int size)
+    public void traverse(int []arr, int size)
     {
         System.out.println("After the Array traversal");
         for (int i = 0; i < size; i++)
@@ -109,7 +99,7 @@ class operation{
         }
     }
     // Get the value from the array
-    public void getvalue(int arr[])
+    public void getvalue(int []arr)
     {
         System.out.println("Enter the index ");
         Scanner sc=new Scanner(System.in);
