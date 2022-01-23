@@ -27,7 +27,7 @@ class student4Subject5
             }
         }
         System.out.println("Average marks obtained in each subject ");
-        int sum=0;
+        float sum=0;
         for(int i=0;i<subject;i++)
         {
             System.out.print("Subject "+(i+1)+" :");
@@ -38,7 +38,7 @@ class student4Subject5
             System.out.print(" "+sum+"\n");
         }
 
-        int sum1=0;
+        float sum1=0;
         int numberOfStudents=0;
         System.out.println("Average marks obtained by every student :");
         for(int i=0;i<students;i++)
