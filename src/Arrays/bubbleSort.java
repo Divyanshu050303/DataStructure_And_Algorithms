@@ -24,15 +24,18 @@ class bubble {
                     array[j + 1] = temp;
                 }
             }
+
+
+        }
             System.out.println("After the Bubble sort the array is :");
-            for (i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 System.out.print(array[i] + " ");
             }
         }
 
     }
 
-}
+
 public  class bubbleSort {
     public static void main(String[] args) {
         bubble b=new bubble();
