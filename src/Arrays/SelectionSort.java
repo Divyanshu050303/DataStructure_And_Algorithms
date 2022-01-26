@@ -22,16 +22,13 @@ class selection
         {
         min=i;
             for (j =i+1 ; j <size ; j++) {
-                if(array[j]<array[min]){
-                min=j;
+                if(array[j]<array[min]) {
+                    min = j;
                 }
-
-
             }
             int temp=array[min];
             array[min]=array[i];
             array[i]=temp;
-
         }
         for (int k = 0; k < size; k++) {
             System.out.print(array[k]+" ");
