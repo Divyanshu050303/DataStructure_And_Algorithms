@@ -14,7 +14,6 @@ class bubble {
             array[i] = sc.nextInt();
         }
     }
-
     public void BubbleSort() {
         for (int i = size - 1; i > 1; i--) {
             for (int j = 0; j < i; j++) {
