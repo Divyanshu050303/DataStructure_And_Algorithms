@@ -36,7 +36,6 @@ class insertion
         }
     }
 }
-
 public class insertionSort {
     public static void main(String[] args) {
         insertion in=new insertion();
