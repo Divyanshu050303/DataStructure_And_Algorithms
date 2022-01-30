@@ -22,7 +22,7 @@ class greater
         Stack <Integer> s=new Stack<>();
 
         for (int i = size-1; i >=0 ; i--) {// we traverse the array from the last
-            if(s.size() == 0)//if size of satck is equal to  zero than we add -1 in vector
+            if(s.size() == 0)        //if size of satck is equal to  zero than we add -1 in vector.
             {
                 v.add(-1);
             }
