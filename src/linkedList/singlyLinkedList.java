@@ -169,10 +169,6 @@ public class singlyLinkedList {
                     ll.insertFirst(value);
                     break;
                 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
                 case 2: {
                     System.out.println("Enter the value which you want to insert");
                     int value = sc.nextInt();
