@@ -17,7 +17,6 @@ class doubly
         public Node(int value) {
             this.value = value;
         }
-
         public Node(int value, Node previous, Node next) {
             this.value = value;
             this.previous = previous;
