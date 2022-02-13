@@ -221,10 +221,12 @@ public class singlyLinkedList {
                     System.out.println("Enter the value");
                     int value = sc.nextInt();
                     ll.insertLast(value);
+                    break;
                 }
                 case 11:
                 {
                     t=false;
+                    break;
 
                 }
                 default:
