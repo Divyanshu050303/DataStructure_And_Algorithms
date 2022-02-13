@@ -12,7 +12,6 @@ public class linkedListDemo {
     linkedListDemo () {
 
     }
-
     void insert() {
         System.out.print("Enter ur Roll Number: ");
         Scanner sc = new Scanner(System.in);
