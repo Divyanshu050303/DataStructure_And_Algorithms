@@ -7,7 +7,6 @@ class digit
         {
             return n;
         }
-
         return n%10+sum(n/10);
     }
 }
