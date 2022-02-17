@@ -1,4 +1,4 @@
-package linkedList;
+package linkedList.question;
 //https://leetcode.com/problems/happy-number/
 class Number
 {
