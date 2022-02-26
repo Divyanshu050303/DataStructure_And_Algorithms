@@ -13,12 +13,19 @@ class stack
     }
     public void push(long j)
     {
-
-        stackArray[++top]=j;
+        if(isFull())
+        {
+            System.out.println("Stack is full ");
+        }
+        top=top+1;
+        stackArray[top]=j;
     }
     public long pop()
     {
-
+        if(isEmpty())
+        {
+            System.out.println("Stack is empty ");
+        }
         return stackArray[top--];
     }
     public boolean isEmpty()
@@ -42,6 +49,7 @@ public class stackDemo {
          st.push(40);
          st.push(60);
          st.push(80);
+         st.pop();
 
          while (!st.isEmpty())
          {
