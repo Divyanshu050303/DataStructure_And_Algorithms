@@ -57,9 +57,9 @@ public class stackImplementationByLinkedList {
     public static void main(String[] args) {
         implement i=new implement();
         System.out.println("Press 1 -> insert");
-        System.out.println("Press 1 -> Delete");
-        System.out.println("Press 1 -> traverse");
-        System.out.println("Press 1 -> exit");
+        System.out.println("Press 2 -> Delete");
+        System.out.println("Press 3 -> traverse");
+        System.out.println("Press 4 -> exit");
         while (true)
         {
             System.out.println("Enter the choice");
