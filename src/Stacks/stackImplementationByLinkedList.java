@@ -14,14 +14,14 @@ class implement
             this.value = value;
         }
     }
-    public void insert(int data)
+    public void push(int data)
     {
         Node temp=new Node(data);
         temp.next=head;
         head=temp;
         System.out.println("Data inserted.....");
     }
-    public void delete()
+    public void pop()
     {
         if(head==null)
         {
@@ -71,12 +71,12 @@ public class stackImplementationByLinkedList {
                 {
                     System.out.println("Enter the data ");
                     int data=sc.nextInt();
-                 i.insert(data);
+                 i.push(data);
                  break;
                 }
                 case 2:
                 {
-                    i.delete();
+                    i.pop();
                     break;
 
                 }
