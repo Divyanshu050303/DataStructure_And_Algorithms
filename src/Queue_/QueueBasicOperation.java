@@ -4,7 +4,7 @@ import java.util.Scanner;
 class queue
 {
     private int maxSize, front, rear, nItem;
-    private int []queArray;
+    private final int []queArray;
     queue(int s)
     {
         maxSize=s;
