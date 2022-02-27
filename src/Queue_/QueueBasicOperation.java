@@ -3,7 +3,7 @@ package Queue_;
 import java.util.Scanner;
 class queue
 {
-    private int maxSize, front, rear, nItem;
+    private int maxSize, front, rear;
     private final int []queArray;
     queue(int s)
     {
@@ -27,7 +27,7 @@ class queue
             int n=sc.nextInt();
             rear=rear+1;
             queArray[rear]=n;
-            nItem+=1;
+
         }
     }
     public void remove()
