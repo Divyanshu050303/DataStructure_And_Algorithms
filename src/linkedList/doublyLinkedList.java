@@ -112,8 +112,6 @@ class doubly
             head=head.next;
             head.previous=null;
             System.out.println(val);
-
-        System.out.println(val);
         size--;
     }
     // delete the last value from the list
