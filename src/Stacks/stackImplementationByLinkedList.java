@@ -38,6 +38,7 @@ class implement
     {
         if(head==null)
         {
+
             System.out.println("List is empty");
         }
         else
