@@ -56,22 +56,15 @@ public class priorityQueueImplementationUsingArray {
             System.out.println("Press 1 for insert" + "\n Press 2 for delete" + "\n Press for traverse" + "\n Press 4 for exit");
             int choice = sc.nextInt();
             switch (choice) {
-                case 1:
+                case 1 -> {
                     System.out.println("Enter the data");
                     int data = sc.nextInt();
                     p.enQueue(data);
-                    break;
-                case 2:
-                    p.deQueue();
-                    break;
-                case 3:
-                    p.traverse();
-                    break;
-                case 4:
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Wrong Choice !");
+                }
+                case 2 -> p.deQueue();
+                case 3 -> p.traverse();
+                case 4 -> System.exit(0);
+                default -> System.out.println("Wrong Choice !");
             }
         }
     }
