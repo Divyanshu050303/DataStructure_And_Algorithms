@@ -13,6 +13,6 @@ class fibo
 public class fibonacci {
     public static void main(String[] args) {
         fibo f=new fibo();
-        System.out.println(f.fiboo(8));
+        System.out.println(f.fiboo(5));
     }
 }
