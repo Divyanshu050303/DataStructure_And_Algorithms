@@ -30,5 +30,6 @@ public class BinarySearching {
         int []arr={1, 2,4, 5,3 ,5, 7, 8,7};
         searching s=new searching();
         System.out.println(s.binary(arr, 2));
+
     }
 }
