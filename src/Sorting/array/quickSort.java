@@ -1,8 +1,8 @@
 package Sorting.array;
 import java.util.Scanner;
 class quick{
-    private int []arr;
-    private int size;
+    int []arr;
+    int size;
     quick(int size){
         this.size=size;
         insert();
