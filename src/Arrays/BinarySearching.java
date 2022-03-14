@@ -1,4 +1,7 @@
 package Arrays;
+import org.w3c.dom.css.CSSImportRule;
+
+import java.util.Scanner;
 class searching
 {
     public int binary(int [] arr, int key)
@@ -27,7 +30,15 @@ class searching
 }
 public class BinarySearching {
     public static void main(String[] args) {
-        int []arr={1, 2,4, 5,3 ,5, 7, 8,7};
+        Scanner scc=new Scanner(System.in);
+        System.out.println("Enter the length of the array");
+        int size= scc.nextInt();
+        System.out.println("Enter the array element");
+        int []arr=new int[size];
+        for (int i=0;i< size;i++)
+        {
+            arr[i]= scc.nextInt();
+        }
         searching s=new searching();
         System.out.println(s.binary(arr, 2));
 
