@@ -1,4 +1,5 @@
 package recursion;
+import java.util.Scanner;
 class binary
 {
     public int search(int arr[], int value, int start, int end)
@@ -22,7 +23,15 @@ class binary
 public class binarySearch {
     public static void main(String[] args) {
         binary b=new binary();
-        int arr[]={1, 2,3 ,4 ,5,7 ,8,88};
+        System.out.println("Enter the length of the array");
+        Scanner sc=new Scanner(System.in);
+        int size=sc.nextInt();
+        int []arr=new int[size];
+        System.out.println("Enter the element in the array");
+        for (int i = 0; i <size ; i++) {
+            arr[i]=sc.nextInt();
+        }
+
         System.out.println(b.search(arr, 4, 0, arr.length-1));
     }
 }
