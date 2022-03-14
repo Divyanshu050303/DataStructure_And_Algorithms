@@ -4,6 +4,13 @@ import org.w3c.dom.css.CSSImportRule;
 import java.util.Scanner;
 class searching
 {
+    int size;
+    int []arr;
+    searching(int size){
+        this.size=size;
+        arr=new int[size];
+        insert();
+    }
     public int binary(int [] arr, int key)
     {
         int high, low, mid;
@@ -27,20 +34,35 @@ class searching
         return -1;
 
     }
+    public void display()
+    {
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i]+" ");
+
+        }
+        System.out.println();
+    }
+    public void insert()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the element in the array");
+        for (int i = 0; i < size; i++) {
+            arr[i]=sc.nextInt();
+
+        }
+        System.out.println("Enter the searching element");
+        int search=sc.nextInt();
+        System.out.println( (binary(arr, search)+1));
+    }
 }
 public class BinarySearching {
     public static void main(String[] args) {
         Scanner scc=new Scanner(System.in);
         System.out.println("Enter the length of the array");
         int size= scc.nextInt();
-        System.out.println("Enter the array element");
-        int []arr=new int[size];
-        for (int i=0;i< size;i++)
-        {
-            arr[i]= scc.nextInt();
-        }
-        searching s=new searching();
-        System.out.println(s.binary(arr, 2));
+
+        searching s=new searching(size);
+
 
     }
 }
