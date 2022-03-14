@@ -13,6 +13,7 @@ class sort
     public void insert()
     {
         Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the element in the array");
         for (int i = 0; i < size; i++) {
             arr[i]=sc.nextInt();
 
@@ -42,7 +43,10 @@ class sort
 }
 public class bubbleSort {
     public static void main(String[] args) {
-        sort s=new sort(5);
+        System.out.println("Enter the size of array");
+        Scanner sc=new Scanner(System.in);
+        int size=sc.nextInt();
+        sort s=new sort(size);
         s.insert();
         System.out.println("Before sorting");
         s.display();
