@@ -1,6 +1,4 @@
 package Arrays;
-import org.w3c.dom.css.CSSImportRule;
-
 import java.util.Scanner;
 class searching
 {
