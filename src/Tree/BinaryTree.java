@@ -1,4 +1,5 @@
 package Tree;
+import java.util.Scanner;
 import java.util.*;
 class binary {
     static class Node {
@@ -115,20 +116,60 @@ public class BinaryTree {
         int []nodes={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
         binary tree=new binary();
         binary.Node root=tree.buildTree(nodes);
-        System.out.println("PerOrder element print");
-        tree.preOrder(root);
-        System.out.println("InOrder element print");
-        tree.inOrder(root);
-        System.out.println("PostOrder element print");
-        tree.postOrder(root);
-        System.out.println("Level order element print");
-        tree.levelOrder(root);
-        System.out.println("Count the node of the tree");
-        System.out.println(tree.countOfNode(root));
-        System.out.println("Sum of the tree");
-        System.out.println(tree.sumOfNode(root));
-        System.out.println("Height of the tree");
-        System.out.println(tree.height(root));
+        Scanner sc=new Scanner(System.in);
+        while (true){
 
+            System.out.println("Press 1 -> PreOrder");
+            System.out.println("Press 2 -> InOrder");
+            System.out.println("Press 3 -> PostOrder");
+            System.out.println("Press 4 -> LevelOrder");
+            System.out.println("Press 5 -> Count the node in the tree");
+            System.out.println("Press 6 -> Sum of the node in the tree");
+            System.out.println("Press 7 -> Height of the tree");
+            System.out.println("Press 8 -> exit");
+            System.out.println();
+            System.out.println("Enter you choice");
+            int choice=sc.nextInt();
+            switch (choice){
+                case 1:{
+                    System.out.println("PerOrder element print");
+                    tree.preOrder(root);
+                    break;
+                }
+                case 2:{
+                    System.out.println("InOrder element print");
+                    tree.inOrder(root);
+                    break;
+                }
+                case 3:{
+                    System.out.println("PostOrder element print");
+                    tree.postOrder(root);
+                    break;
+                }
+                case 4:{
+                    System.out.println("Level order element print");
+                    tree.levelOrder(root);
+                    break;
+                }
+                case 5:{
+                    System.out.println("Count the node of the tree");
+                    System.out.println(tree.countOfNode(root));
+                    break;
+                }
+                case 6:{
+                    System.out.println("Sum of the tree");
+                    System.out.println(tree.sumOfNode(root));
+                    break;
+                }
+                case 7:{
+                    System.out.println("Height of the tree");
+                    System.out.println(tree.height(root));
+                    break;
+                }
+                case 8:{
+                    System.exit(0);
+                }
+            }
+        }
     }
 }
