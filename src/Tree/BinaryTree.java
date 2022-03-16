@@ -110,6 +110,50 @@ class binary {
 
         return height+1;
     }
+    public int diameter(Node root){
+        if(root==null){
+            return 0;
+        }
+        int diameterLeft=diameter(root.leftChild);
+        int diameterRight=diameter(root.rightChild);
+        int rootDiameter=height(root.leftChild)+height(root.rightChild)+1;
+        int maximumDiameter;
+        if(diameterLeft>diameterRight && diameterLeft>rootDiameter){
+            maximumDiameter=diameterLeft;
+        }
+        else if(diameterRight>diameterLeft && diameterRight>rootDiameter){
+            maximumDiameter=diameterRight;
+        }
+        else {
+            maximumDiameter=rootDiameter;
+        }
+        return maximumDiameter;
+    }
+    class treeInformation{
+        int height, diameter;
+        treeInformation(int height, int diameter){
+            this.diameter=diameter;
+            this.height=height;
+        }
+    }
+    public treeInformation diameterApproach2OofN2(Node root){
+        if(root==null){
+            return new treeInformation(0, 0);
+        }
+        treeInformation leftTree=diameterApproach2OofN2(root.leftChild);
+        treeInformation rightTree=diameterApproach2OofN2(root.rightChild);
+
+        int myHeight=Math.max(leftTree.height, rightTree.height)+1;
+
+        int leftDiameter= leftTree.height;
+        int rightDiameter=rightTree.height;
+
+        int rootDiameter=leftDiameter+rightDiameter+1;
+
+        int myDiameter=Math.max(Math.max(leftDiameter, rightDiameter), rootDiameter);
+        treeInformation treeinfo=new treeInformation(myHeight, myDiameter);
+        return treeinfo;
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -126,7 +170,9 @@ public class BinaryTree {
             System.out.println("Press 5 -> Count the node in the tree");
             System.out.println("Press 6 -> Sum of the node in the tree");
             System.out.println("Press 7 -> Height of the tree");
-            System.out.println("Press 8 -> exit");
+            System.out.println("Press 8 -> Diameter of the tree Approach 1");
+            System.out.println("Press 9 -> Diameter of the tree Approach 2");
+            System.out.println("Press 10 -> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -167,6 +213,16 @@ public class BinaryTree {
                     break;
                 }
                 case 8:{
+                    System.out.println("Diameter of the tree Approach 1");
+                    System.out.println(tree.diameter(root));
+                    break;
+                }
+                case 9:{
+                    System.out.println("Diameter of the tree Approach 2");
+                    System.out.println(tree.diameterApproach2OofN2(root).diameter);
+                    break;
+                }
+                case 10:{
                     System.exit(0);
                 }
             }
