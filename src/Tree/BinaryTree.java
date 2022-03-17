@@ -154,6 +154,17 @@ class binary {
         treeInformation treeinfo=new treeInformation(myHeight, myDiameter);
         return treeinfo;
     }
+    public Node Minimum(Node root){
+        Node current;
+        Node last = null;
+        current =root;
+        while (current!=null){
+            last=current;
+            current=current.leftChild;
+        }
+        return last;
+    }
+
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -172,7 +183,8 @@ public class BinaryTree {
             System.out.println("Press 7 -> Height of the tree");
             System.out.println("Press 8 -> Diameter of the tree Approach 1");
             System.out.println("Press 9 -> Diameter of the tree Approach 2");
-            System.out.println("Press 10 -> exit");
+            System.out.println("Press 10 -> Find the Minimum value in the tree");
+            System.out.println("Press 11 -> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -223,6 +235,10 @@ public class BinaryTree {
                     break;
                 }
                 case 10:{
+                    System.out.println("Minimum value in the tree");
+                    System.out.println(tree.Minimum(root).data);
+                }
+                case 11:{
                     System.exit(0);
                 }
             }
