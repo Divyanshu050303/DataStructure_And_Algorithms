@@ -113,7 +113,7 @@ class binary {
 
         return height+1;
     }
-    // to calculate the diameter of the node
+    // to calculate the diameter of the tree
     public int diameter(Node root){
         if(root==null){
             return 0;
