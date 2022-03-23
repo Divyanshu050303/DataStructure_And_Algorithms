@@ -28,6 +28,30 @@ class binary {
         newNode.rightChild = buildTree(node);
         return newNode;
     }
+    public Node inputTreeNode(){
+        Scanner sc=new Scanner(System.in);
+        Queue<Node> q=new LinkedList<>();
+        int rootDat=sc.nextInt();
+        Node root=new Node(rootDat);
+        q.add(root);
+        while (!q.isEmpty()){
+            var currentNode=q.remove();
+            if(currentNode==null)
+                break;
+            int leftChild= sc.nextInt();
+            int rightChild=sc.nextInt();
+            if(leftChild!=-1){
+                currentNode.leftChild=new Node(leftChild);
+                q.add(currentNode.leftChild);
+            }
+            if(rightChild!=-1){
+                currentNode.rightChild=new Node(rightChild);
+                q.add(currentNode.rightChild);
+            }
+        }
+        return root;
+
+    }
     // To print in preorder
     public void preOrder(Node root){
         if(root==null){
@@ -157,8 +181,7 @@ class binary {
         int rootDiameter=leftDiameter+rightDiameter+1;
 
         int myDiameter=Math.max(Math.max(leftDiameter, rightDiameter), rootDiameter);
-        treeInformation treeinfo= new treeInformation(myHeight, myDiameter);
-        return treeinfo;
+        return new treeInformation(myHeight, myDiameter);
     }
     // to calculate the minimum node from the tree
     public Node Minimum(Node root){
@@ -292,34 +315,65 @@ class binary {
         inOrderDoublyLinkedList(root.leftChild);
         inOrderDoublyLinkedList(root.rightChild);
     }
+    public boolean searchNode(Node root, int searchKey){
+        if(root==null){
+            return false;
+        }
+        else if(root.data==searchKey){
+            return true;
+        }
+        else if(root.data>searchKey){
+            return searchNode(root.leftChild, searchKey);
+        }
+        else{
+            return searchNode(root.rightChild,searchKey );
+        }
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
-        int []nodes={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-        binary tree=new binary();
-        binary.Node root=tree.buildTree(nodes);
-        Scanner sc=new Scanner(System.in);
-        while (true){
 
-            System.out.println("Press 1 -> PreOrder");
-            System.out.println("Press 2 -> InOrder");
-            System.out.println("Press 3 -> PostOrder");
-            System.out.println("Press 4 -> LevelOrder");
-            System.out.println("Press 5 -> Count the node in the tree");
-            System.out.println("Press 6 -> Sum of the node in the tree");
-            System.out.println("Press 7 -> Height of the tree");
-            System.out.println("Press 8 -> Diameter of the tree Approach 1");
-            System.out.println("Press 9 -> Diameter of the tree Approach 2");
-            System.out.println("Press 10 -> Find the Minimum value in the tree");
-            System.out.println("Press 11 -> Find the inOrderMorris traversal");
-            System.out.println("Press 12 -> find the preOrderMorris traversal");
-            System.out.println("Press 13 -> Convert the Tree into Singly Linked List");
-            System.out.println("Press 14 -> Convert the Tree into Doubly Linked List");
-            System.out.println("Press 15 -> exit");
+        binary tree=new binary();
+        binary.Node root=null;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Press 1 -> to user entered tree \n press -> go with predefine tree");
+        int chi=sc.nextInt();
+        if(chi==1){
+
+                root= tree.inputTreeNode();
+        }
+        else if(chi==2){
+
+                int []nodes={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+                root=tree.buildTree(nodes);
+        }
+        else {
+            System.out.println("Wrong choice");
+        }
+        while (true){
+            System.out.println("Press 1 -> Input the tree");
+            System.out.println("Press 2 -> OR go with predefine tree");
+            System.out.println("Press 3 -> PreOrder");
+            System.out.println("Press 4 -> InOrder");
+            System.out.println("Press 5 -> PostOrder");
+            System.out.println("Press 6 -> LevelOrder");
+            System.out.println("Press 7 -> Count the node in the tree");
+            System.out.println("Press 8 -> Sum of the node in the tree");
+            System.out.println("Press 9 -> Height of the tree");
+            System.out.println("Press 10 -> Diameter of the tree Approach 1");
+            System.out.println("Press 11 -> Diameter of the tree Approach 2");
+            System.out.println("Press 12 -> Find the Minimum value in the tree");
+            System.out.println("Press 13 -> Find the inOrderMorris traversal");
+            System.out.println("Press 14 -> find the preOrderMorris traversal");
+            System.out.println("Press 15 -> Convert the Tree into Singly Linked List");
+            System.out.println("Press 16 -> Convert the Tree into Doubly Linked List");
+            System.out.println("Press 17 -> Search the Node in the tree");
+            System.out.println("Press 18 -> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
             switch (choice){
+
                 case 1:{
                     System.out.println("PerOrder element print");
                     tree.preOrder(root);
@@ -393,6 +447,10 @@ public class BinaryTree {
                     break;
                 }
                 case 15:{
+                    System.out.println(tree.searchNode(root, 7)+" Node present in the tree");
+                    break;
+                }
+                case 16:{
                     System.exit(0);
                 }
             }
