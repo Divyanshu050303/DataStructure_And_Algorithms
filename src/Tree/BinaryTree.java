@@ -7,14 +7,15 @@ class binary {
         int data;
         Node leftChild;
         Node rightChild;
-
+        Node next;
+        Node previous;
         Node(int data) {
             this.data = data;
             this.leftChild = null;
             this.rightChild = null;
+            this.next=null;
         }
     }
-
     static int idx = -1;
     // to Build the binary tree
     public Node buildTree(int[] node) {
@@ -218,7 +219,79 @@ class binary {
             }
         }
     }
+    // Convert the Tree into Singly linked list
+    Node head;
+    Node tail;
+    public void insert(Node node){
+        if(node!=null){
+            Node newNode=new Node(node.data);
+            if(head==null){
+                head=newNode;
+            }
+            else {
+                tail.next=newNode;
+            }
+            tail=newNode;
+        }
+    }
+    public void inOrderLinkedList(Node root){
+        if(root==null){
+            return;
+        }
+        insert(root);
+        inOrderLinkedList(root.leftChild);
+        inOrderLinkedList(root.rightChild);
+    }
+    public void traversalLinkedList(){
+        Node temp=head;
+        while (temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        System.out.println();
 
+    }
+    // Convert the tree into Doubly Linked List
+    public void insertDoublyLinkedList(Node node){
+        Node newNode=new Node(node.data);
+        if(node!=null){
+            if(head==null){
+                head=newNode;
+                newNode.previous=null;
+            }
+            else {
+                tail.next=newNode;
+                newNode.previous=tail;
+            }
+            tail=newNode;
+        }
+    }
+    public void traverseDoublyLinkedList(){
+        Node node=head;
+        System.out.println("This list is in forward order");
+        while (node!=null)
+        {
+            System.out.print(node.data+"->");
+            tail=node;
+            node=node.next;
+        }
+        System.out.println();
+        System.out.println("The list is in reverse order");
+        while (tail!=null)
+        {
+            System.out.print(tail.data+"<-");
+            tail=tail.previous;
+        }
+        System.out.println();
+    }
+    public void inOrderDoublyLinkedList(Node root){
+        if(root==null){
+            return;
+        }
+        insertDoublyLinkedList(root);
+        inOrderDoublyLinkedList(root.leftChild);
+        inOrderDoublyLinkedList(root.rightChild);
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -240,7 +313,9 @@ public class BinaryTree {
             System.out.println("Press 10 -> Find the Minimum value in the tree");
             System.out.println("Press 11 -> Find the inOrderMorris traversal");
             System.out.println("Press 12 -> find the preOrderMorris traversal");
-            System.out.println("Press 13 -> exit");
+            System.out.println("Press 13 -> Convert the Tree into Singly Linked List");
+            System.out.println("Press 14 -> Convert the Tree into Doubly Linked List");
+            System.out.println("Press 15 -> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -268,9 +343,6 @@ public class BinaryTree {
                 case 5:{
                     System.out.println("Count the node of the tree");
                     System.out.println(tree.countOfNode(root));
-
-
-
                     break;
                 }
                 case 6:{
@@ -309,6 +381,18 @@ public class BinaryTree {
                     break;
                 }
                 case 13:{
+                    System.out.println("After the converting ");
+                    tree.inOrderLinkedList(root);
+                    tree.traversalLinkedList();
+                    break;
+                }
+                case 14:{
+                    System.out.println("After Converting");
+                    tree.inOrderDoublyLinkedList(root);
+                    tree.traverseDoublyLinkedList();
+                    break;
+                }
+                case 15:{
                     System.exit(0);
                 }
             }
