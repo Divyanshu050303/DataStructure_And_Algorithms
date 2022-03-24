@@ -329,6 +329,36 @@ class binary {
             return searchNode(root.rightChild,searchKey );
         }
     }
+    public Node DeleteTheNode(Node root, int key){
+        if(root==null){
+            return null;
+        }
+        if(key<root.data){
+            root.leftChild=DeleteTheNode(root.leftChild, key);
+        }
+        else if(key>root.data){
+            root.rightChild=DeleteTheNode(root.rightChild, key);
+        }
+        else{
+            if(root.leftChild==null){
+                return root.rightChild;
+            }
+            else if(root.rightChild==null){
+                return root.rightChild;
+            }
+            root.data=minimumValue(root.rightChild);
+            root.rightChild=DeleteTheNode(root.rightChild, root.data);
+        }
+        return root;
+    }
+    public int minimumValue(Node root){
+        int minValue=root.data;
+        while (root.leftChild!=null){
+            minValue=root.leftChild.data;
+            root=root.leftChild;
+        }
+        return minValue;
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -336,7 +366,7 @@ public class BinaryTree {
         binary tree=new binary();
         binary.Node root=null;
         Scanner sc=new Scanner(System.in);
-        System.out.println("Press 1 -> to user entered tree \n press -> go with predefine tree");
+        System.out.println(" Press 1 -> to user entered tree \n press 2 -> go with predefine tree");
         int chi=sc.nextInt();
         if(chi==1){
 
@@ -351,24 +381,23 @@ public class BinaryTree {
             System.out.println("Wrong choice");
         }
         while (true){
-            System.out.println("Press 1 -> Input the tree");
-            System.out.println("Press 2 -> OR go with predefine tree");
-            System.out.println("Press 3 -> PreOrder");
-            System.out.println("Press 4 -> InOrder");
-            System.out.println("Press 5 -> PostOrder");
-            System.out.println("Press 6 -> LevelOrder");
-            System.out.println("Press 7 -> Count the node in the tree");
-            System.out.println("Press 8 -> Sum of the node in the tree");
-            System.out.println("Press 9 -> Height of the tree");
-            System.out.println("Press 10 -> Diameter of the tree Approach 1");
-            System.out.println("Press 11 -> Diameter of the tree Approach 2");
-            System.out.println("Press 12 -> Find the Minimum value in the tree");
-            System.out.println("Press 13 -> Find the inOrderMorris traversal");
-            System.out.println("Press 14 -> find the preOrderMorris traversal");
-            System.out.println("Press 15 -> Convert the Tree into Singly Linked List");
-            System.out.println("Press 16 -> Convert the Tree into Doubly Linked List");
-            System.out.println("Press 17 -> Search the Node in the tree");
-            System.out.println("Press 18 -> exit");
+            System.out.println("Press 1 -> PreOrder");
+            System.out.println("Press 2 -> InOrder");
+            System.out.println("Press 3 -> PostOrder");
+            System.out.println("Press 4 -> LevelOrder");
+            System.out.println("Press 5 -> Count the node in the tree");
+            System.out.println("Press 6 -> Sum of the node in the tree");
+            System.out.println("Press 7 -> Height of the tree");
+            System.out.println("Press 8 -> Diameter of the tree Approach 1");
+            System.out.println("Press 9 -> Diameter of the tree Approach 2");
+            System.out.println("Press 10 -> Find the Minimum value in the tree");
+            System.out.println("Press 11 -> Find the inOrderMorris traversal");
+            System.out.println("Press 12 -> find the preOrderMorris traversal");
+            System.out.println("Press 13 -> Convert the Tree into Singly Linked List");
+            System.out.println("Press 14 -> Convert the Tree into Doubly Linked List");
+            System.out.println("Press 15 -> Search the Node in the tree");
+            System.out.println("Press 16 -> Delete the node from the tree");
+            System.out.println("Press 17-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -451,6 +480,14 @@ public class BinaryTree {
                     break;
                 }
                 case 16:{
+                    System.out.println("Before delete the node the tree is : ");
+                    tree.inOrder(root);
+                    System.out.println("\n After  delete the node from the tree");
+                    tree.DeleteTheNode(root, 20);
+                    tree.inOrder(root);
+                    break;
+                }
+                case 17:{
                     System.exit(0);
                 }
             }
