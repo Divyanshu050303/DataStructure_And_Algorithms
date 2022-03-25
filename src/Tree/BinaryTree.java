@@ -359,6 +359,40 @@ class binary {
         }
         return minValue;
     }
+    class vPair{
+        Node node=null;
+        int h1=0;
+        vPair(Node node, int h1){
+            this.node=node;
+            this.h1=h1;
+        }
+    }
+    public List<List<Integer>> verticalOrderTraversal(Node root){
+        LinkedList<vPair> que=new LinkedList<>();
+        HashMap<Integer, List<Integer>> map=new HashMap<>();
+        int minh1=0, maxh1=0;
+        List<List<Integer>> ans=new ArrayList<>();
+        que.addLast(new vPair(root, 0));
+        while (que.size()!=0){
+            int size=que.size();
+            while (size-->0){
+                vPair rp=que.removeFirst();
+                maxh1=Math.max(maxh1, rp.h1);
+                minh1=Math.min(minh1, rp.h1);
+                map.putIfAbsent(rp.h1, new ArrayList<>());
+                map.get(rp.h1).add(rp.node.data);
+                if(rp.node.leftChild !=null)
+                    que.addLast(new vPair(rp.node.leftChild, rp.h1-1));
+
+                if(rp.node.rightChild !=null)
+                    que.addLast(new vPair(rp.node.rightChild, rp.h1+1));
+            }
+        }
+        for (int i = minh1; i <= maxh1; i++) {
+            ans.add(map.get(i));
+        }
+        return ans;
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -397,7 +431,8 @@ public class BinaryTree {
             System.out.println("Press 14 -> Convert the Tree into Doubly Linked List");
             System.out.println("Press 15 -> Search the Node in the tree");
             System.out.println("Press 16 -> Delete the node from the tree");
-            System.out.println("Press 17-> exit");
+            System.out.println("Press 17 ->Vertical order traversal ");
+            System.out.println("Press 18-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -479,7 +514,7 @@ public class BinaryTree {
                     System.out.println(tree.searchNode(root, 7)+" Node present in the tree");
                     break;
                 }
-                case 16:{
+                case 16: {
                     System.out.println("Before delete the node the tree is : ");
                     tree.inOrder(root);
                     System.out.println("\n After  delete the node from the tree");
@@ -488,6 +523,11 @@ public class BinaryTree {
                     break;
                 }
                 case 17:{
+                    System.out.println("Vertical order traversal");
+                    System.out.println(tree.verticalOrderTraversal(root));
+                    break;
+                }
+                case 18:{
                     System.exit(0);
                 }
             }
