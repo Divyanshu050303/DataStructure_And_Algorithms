@@ -18,7 +18,7 @@ class binary {
     }
     static int idx = -1;
     // to Build the binary tree
-    public Node buildTree(int[] node) {
+    public static Node buildTree(int[] node) {
         idx++;
         if (node[idx] == -1) {
             return null;
