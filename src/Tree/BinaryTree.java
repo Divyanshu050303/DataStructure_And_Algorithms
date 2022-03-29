@@ -393,6 +393,41 @@ class binary {
         }
         return ans;
     }
+    public void ZigZagTraversal(Node root){
+        if(root==null){
+            return;
+        }
+        Stack<Node> currentLevel=new Stack<>();
+        Stack<Node> nextLeve=new Stack<>();
+        currentLevel.push(root);
+        boolean leftToRight=true;
+        while (!currentLevel.isEmpty()){
+            Node node=currentLevel.pop();
+            System.out.print(node.data+" ");
+            if(leftToRight){
+                if(node.leftChild!=null){
+                    nextLeve.push(node.leftChild);
+                }
+                if(node.rightChild!=null){
+                    nextLeve.push(node.rightChild);
+                }
+            }
+            else{
+                if(node.rightChild!=null){
+                    nextLeve.push(node.rightChild);
+                }
+                if(node.leftChild!=null){
+                    nextLeve.push(node.leftChild);
+                }
+            }
+            if(currentLevel.isEmpty()){
+                leftToRight=!leftToRight;
+                Stack<Node> temp=currentLevel;
+                currentLevel=nextLeve;
+                nextLeve=temp;
+            }
+        }
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -432,7 +467,8 @@ public class BinaryTree {
             System.out.println("Press 15 -> Search the Node in the tree");
             System.out.println("Press 16 -> Delete the node from the tree");
             System.out.println("Press 17 ->Vertical order traversal ");
-            System.out.println("Press 18-> exit");
+            System.out.println("Press 18 ->ZigZag order traversal ");
+            System.out.println("Press 19-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -528,6 +564,11 @@ public class BinaryTree {
                     break;
                 }
                 case 18:{
+                    System.out.println("Zigzag order traversal");
+                    tree.ZigZagTraversal(root);
+                    break;
+                }
+                case 19:{
                     System.exit(0);
                 }
             }
