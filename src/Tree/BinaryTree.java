@@ -428,6 +428,46 @@ class binary {
             }
         }
     }
+    public void topViewOfTree(Node root){
+        class QueClass{
+            Node node;
+            int hd;
+            QueClass(Node node, int hd){
+                this.node=node;
+                this.hd=hd;
+            }
+        }
+        Queue<QueClass> q=new LinkedList<>();
+        Map<Integer, Node> topView=new TreeMap<>();
+        if(root==null){
+            return;
+        }
+        q.add(new QueClass(root, 0));
+        while (!q.isEmpty()){
+            QueClass tempNode=q.poll();
+            if(!topView.containsKey(tempNode.hd)){
+                topView.put(tempNode.hd, tempNode.node);
+            }
+            if(tempNode.node.leftChild!=null){
+                q.add(new QueClass(tempNode.node.leftChild, tempNode.hd-1));
+            }
+            if(tempNode.node.rightChild!=null){
+                q.add(new QueClass(tempNode.node.rightChild, tempNode.hd+1));
+            }
+        }
+        for(Map.Entry<Integer, Node> entry:topView.entrySet()){
+            System.out.print(entry.getValue().data+" ");
+        }
+    }
+    public void downView(Node root){
+        if(root==null){
+            return;
+        }
+        int hd;
+        Map<Integer, Integer> map=new TreeMap<>();
+        Queue<Node> queue=new LinkedList<>();
+
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -466,9 +506,10 @@ public class BinaryTree {
             System.out.println("Press 14 -> Convert the Tree into Doubly Linked List");
             System.out.println("Press 15 -> Search the Node in the tree");
             System.out.println("Press 16 -> Delete the node from the tree");
-            System.out.println("Press 17 ->Vertical order traversal ");
-            System.out.println("Press 18 ->ZigZag order traversal ");
-            System.out.println("Press 19-> exit");
+            System.out.println("Press 17 -> Vertical order traversal ");
+            System.out.println("Press 18 -> ZigZag order traversal ");
+            System.out.println("Press 19 -> Top view of the tree");
+            System.out.println("Press 20-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -569,6 +610,11 @@ public class BinaryTree {
                     break;
                 }
                 case 19:{
+                    System.out.println("Top view of the tree is ...");
+                    tree.topViewOfTree(root);
+                    break;
+                }
+                case 20:{
                     System.exit(0);
                 }
             }
