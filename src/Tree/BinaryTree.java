@@ -16,7 +16,7 @@ class binary {
             this.next=null;
         }
     }
-    static int idx = -1;
+    static int idx = -1, time=0;
     // to Build the binary tree
     public static Node buildTree(int[] node) {
         idx++;
@@ -468,6 +468,50 @@ class binary {
         Queue<Node> queue=new LinkedList<>();
 
     }
+    public void rightArrayList(Node root){
+        List<Integer> arrayList=new ArrayList<>();
+        rightPrintView(root, 0, arrayList);
+        rightPrintTraversal(arrayList);
+
+    }
+    public void rightPrintView(Node root, int level, List<Integer> arrayList){
+        if(root==null){
+            return;
+        }
+        if(level==arrayList.size()){
+            arrayList.add(root.data);
+        }
+        rightPrintView(root.rightChild, level+1, arrayList);
+        rightPrintView(root.leftChild, level+1, arrayList);
+
+    }
+    public void rightPrintTraversal(List<Integer> arrayList){
+        for(int i :arrayList){
+            System.out.print(i+" ");
+        }
+    }
+    public void LeftArrayList(Node root){
+        List<Integer> arrayList=new ArrayList<>();
+        leftPrintView(root, 0, arrayList);
+        leftPrintTraversal(arrayList);
+
+    }
+    public void leftPrintView(Node root, int level, List<Integer> arrayList){
+        if(root==null){
+            return;
+        }
+        if(level==arrayList.size()){
+            arrayList.add(root.data);
+        }
+        leftPrintView(root.leftChild, level+1, arrayList);
+        leftPrintView(root.rightChild, level+1, arrayList);
+
+    }
+    public void leftPrintTraversal(List<Integer> arrayList){
+        for(int i :arrayList){
+            System.out.print(i+" ");
+        }
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -509,7 +553,9 @@ public class BinaryTree {
             System.out.println("Press 17 -> Vertical order traversal ");
             System.out.println("Press 18 -> ZigZag order traversal ");
             System.out.println("Press 19 -> Top view of the tree");
-            System.out.println("Press 20-> exit");
+            System.out.println("Press 20 -> Print Right View using preOrder");
+            System.out.println("Press 21 -> Print Left View using preOrder");
+            System.out.println("Press 22-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -615,6 +661,18 @@ public class BinaryTree {
                     break;
                 }
                 case 20:{
+                    System.out.println("Print Right View ...");
+                    tree.rightArrayList(root);
+                    System.out.println();
+                    break;
+                }
+                case 21:{
+                    System.out.println("Print Left View ...");
+                    tree.LeftArrayList(root);
+                    System.out.println();
+                    break;
+                }
+                case 22:{
                     System.exit(0);
                 }
             }
