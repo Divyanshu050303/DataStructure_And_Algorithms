@@ -512,6 +512,20 @@ class binary {
             System.out.print(i+" ");
         }
     }
+    public Node treePruning(Node root){
+        if(root==null){
+            return null;
+        }
+        root.leftChild=treePruning(root.leftChild);
+        root.rightChild=treePruning(root.rightChild);
+        if(root.leftChild!=null || root.rightChild!=null){
+            return root;
+        }
+        if(root.data==-1){
+            return null;
+        }
+        return root;
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -555,7 +569,8 @@ public class BinaryTree {
             System.out.println("Press 19 -> Top view of the tree");
             System.out.println("Press 20 -> Print Right View using preOrder");
             System.out.println("Press 21 -> Print Left View using preOrder");
-            System.out.println("Press 22-> exit");
+            System.out.println("Press 22 -> Post Order tree pruning ");
+            System.out.println("Press 23-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -673,6 +688,11 @@ public class BinaryTree {
                     break;
                 }
                 case 22:{
+                    System.out.println("Post order tree pruning ...");
+                    System.out.println(tree.treePruning(root).data);
+                    break;
+                }
+                case 23:{
                     System.exit(0);
                 }
             }
