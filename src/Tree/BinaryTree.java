@@ -526,6 +526,23 @@ class binary {
         }
         return root;
     }
+    public Node lowestCommonAncestor(Node root, Node p, Node q){
+        if(root==null || root==p ||root==q){
+            return root;
+        }
+        Node leftChild=lowestCommonAncestor(root.leftChild, p, q);
+        Node rightChild=lowestCommonAncestor(root.rightChild, p, q);
+        if(leftChild==null){
+            return rightChild;
+        }
+        else if(rightChild==null){
+            return leftChild;
+        }
+        else{
+            return root;
+        }
+
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -570,7 +587,8 @@ public class BinaryTree {
             System.out.println("Press 20 -> Print Right View using preOrder");
             System.out.println("Press 21 -> Print Left View using preOrder");
             System.out.println("Press 22 -> Post Order tree pruning ");
-            System.out.println("Press 23-> exit");
+            System.out.println("Press 23 -> To find the lowest common ancestor");
+            System.out.println("Press 24-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -693,6 +711,13 @@ public class BinaryTree {
                     break;
                 }
                 case 23:{
+                    System.out.println("Lowest Common Ancestor is ...");
+                    binary.Node p=new binary.Node(2);
+                    binary.Node q=new binary.Node(6);
+                    System.out.println(tree.lowestCommonAncestor(root,p, q ));
+                    break;
+                }
+                case 24:{
                     System.exit(0);
                 }
             }
