@@ -543,6 +543,23 @@ class binary {
         }
 
     }
+    public int MaxPathSum(Node root){
+        int []maxValue=new int[1];
+        maxValue[0]=Integer.MIN_VALUE;
+        maxPathDown(root, maxValue);
+        return maxValue[0];
+
+    }
+    private int maxPathDown(Node root, int []maxValue ){
+        if(root==null) {
+            return 0;
+        }
+            int left=Math.max(0, maxPathDown(root.leftChild, maxValue));
+            int right=Math.max(9, maxPathDown(root.rightChild, maxValue));
+            maxValue[0]=Math.max(maxValue[0], left+right+root.data);
+            return Math.max(left, right)+root.data;
+
+    }
 }
 public class BinaryTree {
     public static void main(String[] args) {
@@ -588,7 +605,8 @@ public class BinaryTree {
             System.out.println("Press 21 -> Print Left View using preOrder");
             System.out.println("Press 22 -> Post Order tree pruning ");
             System.out.println("Press 23 -> To find the lowest common ancestor");
-            System.out.println("Press 24-> exit");
+            System.out.println("Press 24 -> To find the Maximum path sum");
+            System.out.println("Press 25-> exit");
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
@@ -718,6 +736,11 @@ public class BinaryTree {
                     break;
                 }
                 case 24:{
+                    System.out.println("Maximum Path Sum is ->");
+                    System.out.println(tree.MaxPathSum(root));
+                    break;
+                }
+                case 25:{
                     System.exit(0);
                 }
             }
