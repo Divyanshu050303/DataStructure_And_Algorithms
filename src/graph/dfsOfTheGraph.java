@@ -1,7 +1,18 @@
 package graph;
 
 import java.util.ArrayList;
+/* Depth first search is an algorithm for traversing or searching tree or graph data structure .The
+algorithm starts at the root node and explore as far as possible along each branch before backtracking
 
+Time complexity of dfs O(V+E)
+where V is the number of vertices and E is the number of edge in the graph.
+
+
+Application of the dfs
+1->Path finding
+2->Topological Sorting
+3->Solving puzzles with only one solution
+ */
 public class dfsOfTheGraph {
     public void dfs(int node, boolean []vis, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> storeDfs){
         storeDfs.add(node);
