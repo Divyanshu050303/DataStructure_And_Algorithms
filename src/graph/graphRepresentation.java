@@ -33,33 +33,97 @@ class graphs{
                 }
         return bfs;
     }
+    public void dfs(int node, boolean []vis, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> storeDfs){
+        storeDfs.add(node);
+        vis[node]=true;
+        for(Integer it:adj.get(node)) {
+            if (!vis[it]) {
+                dfs(it, vis, adj, storeDfs);
+            }
+        }
+    }
+    public ArrayList<Integer> dfsOfTheGraph(int v, ArrayList<ArrayList<Integer>> adj){
+        ArrayList<Integer> storeDFS=new ArrayList<>();
+        boolean []vis=new boolean[v+1];
+        for(int i=0;i<v;i++){
+            if(!vis[i]){
+                dfs(i, vis, adj, storeDFS);
+            }
+        }
+        return storeDFS;
+    }
+    static class  Node{
+        int first, second;
+        Node(int first, int second){
+            this.first=first;
+            this.second=second;
+        }
+    }
+    public boolean checkForCycle(int s, boolean []vis, ArrayList<ArrayList<Integer>>adj) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(new Node(s, -1));
+        vis[s] = true;
+        while (!q.isEmpty()) {
+            int node = q.peek().first;
+            int par = q.peek().second;
+            q.remove();
+            for (Integer it : adj.get(node)) {
+                if (!vis[it]) {
+                    q.add(new Node(it, node));
+                    vis[it] = true;
+                } else if (par != it) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+        public boolean isCycle(int v, ArrayList<ArrayList<Integer>> adj){
+            boolean []vis=new boolean[v];
+            Arrays.fill(vis, false);
+            int []parent=new int[v];
+            Arrays.fill(parent, -1);
+            for (int i = 0; i <v ; i++) {
+                if(!vis[i]){
+                    if(checkForCycle( i, vis, adj)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
 }
 public class graphRepresentation {
     public static void main(String[] args) {
         int v=5;
-        ArrayList<ArrayList<Integer>> adj=new ArrayList<ArrayList<Integer>>(v);
+        ArrayList<ArrayList<Integer>> adj=new ArrayList<>(v);
         for (int i = 0; i < v; i++) {
             adj.add(new ArrayList<>());
         }
         graphs g=new graphs();
+        graphs.addEdge(adj, 0, 1);
+        graphs.addEdge(adj, 0, 4);
+        graphs.addEdge(adj, 1, 2);
+        graphs.addEdge(adj, 1, 3);
+        graphs.addEdge(adj, 1, 4);
+        graphs.addEdge(adj, 2, 3);
+        graphs.addEdge(adj, 3, 4);
+        System.out.println("Graph inserted...");
         while (true) {
             Scanner sc = new Scanner(System.in);
-            System.out.println("press 1 -> AddEdge");
+            System.out.println(" Press 1-> Cycle Detection in Undirected Graph using BFS");
             System.out.println("Press 2 -> Print The Graph");
             System.out.println("Press 3 -> Bfs Of The Graph");
-            System.out.println("Press 4 -> Exit");
+            System.out.println("Press 4 -> Dfs Of The Graph");
+            System.out.println("Press 5 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
                 case 1 -> {
-                    graphs.addEdge(adj, 0, 1);
-                    graphs.addEdge(adj, 0, 4);
-                    graphs.addEdge(adj, 1, 2);
-                    graphs.addEdge(adj, 1, 3);
-                    graphs.addEdge(adj, 1, 4);
-                    graphs.addEdge(adj, 2, 3);
-                    graphs.addEdge(adj, 3, 4);
-                    System.out.println("Graph inserted...");
+                    System.out.println("Cycle Detection in Undirected Graph using BFS");
+                    System.out.println(g.isCycle(v, adj));
                 }
                 case 2 -> {
                     System.out.println("Your graph is");
@@ -69,7 +133,11 @@ public class graphRepresentation {
                     System.out.println("Bfs Of The Graphs");
                     System.out.println(g.bfsOfGraph(v, adj));
                 }
-                case 4 -> {
+                case 4->{
+                    System.out.println("Dfs of the graph");
+                    System.out.println(g.dfsOfTheGraph(v, adj));
+                }
+                case 5 -> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
