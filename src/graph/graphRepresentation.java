@@ -1,6 +1,18 @@
 package graph;
 
 import java.util.*;
+
+/* Graph is a non-linear data structure consisting of node and edge.The nodes are sometimes also
+referred to as vertices and the edge are kine or arcs that connect any two nodes in the graph.
+
+A graph consists of a finite set of vertices and set of edge which connect a pair of nodes.
+
+ Application of the graph is
+ 1->Graphs are used to define the FLOW OF THE COMPUTER
+ 2->Graphs are used to represent NETWORKS OF COMMUNICATION
+ 3->Graphs are used to represent DATA ORGANIZATION
+ 4->Graphs are used to find THE SHORTEST PATH in ROAD or a NETWORK;
+ */
 class graphs{
     public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v){
         adj.get(u).add(v);
