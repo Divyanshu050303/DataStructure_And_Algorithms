@@ -105,6 +105,31 @@ class graphs{
             }
             return false;
         }
+        public boolean checkForCycle1(int node, int parent, boolean[]vis, ArrayList<ArrayList<Integer>> adj){
+        vis[node]=true;
+        for(Integer it:adj.get(node)){
+            if(!vis[it]){
+                if(checkForCycle1(it, node, vis, adj)){
+                    return true;
+                }
+                else if(it!=parent){
+                    return true;
+                }
+            }
+        }
+        return false;
+        }
+        public boolean isCycleDfs(int v, ArrayList<ArrayList<Integer>>adj){
+        boolean []vis=new boolean[v];
+            for (int i = 0; i <v ; i++) {
+                if(!vis[i]){
+                    if(checkForCycle1(i, -1,vis, adj)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
 }
 public class graphRepresentation {
@@ -125,11 +150,12 @@ public class graphRepresentation {
         System.out.println("Graph inserted...");
         while (true) {
             Scanner sc = new Scanner(System.in);
-            System.out.println(" Press 1-> Cycle Detection in Undirected Graph using BFS");
+            System.out.println("Press 1-> Cycle Detection in Undirected Graph using BFS");
             System.out.println("Press 2 -> Print The Graph");
             System.out.println("Press 3 -> Bfs Of The Graph");
             System.out.println("Press 4 -> Dfs Of The Graph");
-            System.out.println("Press 5 -> Exit");
+            System.out.println("Press 5-> Cycle Detection in Undirected Graph using DFS");
+            System.out.println("Press 6 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
@@ -150,6 +176,10 @@ public class graphRepresentation {
                     System.out.println(g.dfsOfTheGraph(v, adj));
                 }
                 case 5 -> {
+                    System.out.println("Cycle Detection in Undirected Graph using DFS");
+                    System.out.println(g.isCycleDfs(v, adj));
+                }
+                case 6 -> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
