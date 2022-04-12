@@ -130,7 +130,38 @@ class graphs{
             }
             return false;
         }
-
+        public boolean bfsCheck(ArrayList<ArrayList<Integer>>adj, int node, int[]color){
+        Queue<Integer> q=new LinkedList<>();
+        q.add(node);
+        color[node]=1;
+        while (!q.isEmpty()){
+            Integer nde=q.poll();
+            for(Integer it:adj.get(nde)){
+                if(color[it]==-1){
+                    color[it]=1-color[nde];
+                    q.add(it);
+                }
+                else if(color[it]==color[nde]){
+                    return false;
+                }
+            }
+        }
+        return true;
+        }
+        public boolean checkBipartite(ArrayList<ArrayList<Integer>>adj, int v){
+        int []color=new int[v];
+        for (int i = 0; i < v; i++) {
+                color[i]=-1;
+            }
+        for (int i = 0; i < v; i++) {
+                if(color[i]==-1){
+                    if(!bfsCheck(adj, i, color)){
+                        return false;
+                    }
+                }
+            }
+        return true;
+    }
 }
 public class graphRepresentation {
     public static void main(String[] args) {
@@ -154,8 +185,9 @@ public class graphRepresentation {
             System.out.println("Press 2 -> Print The Graph");
             System.out.println("Press 3 -> Bfs Of The Graph");
             System.out.println("Press 4 -> Dfs Of The Graph");
-            System.out.println("Press 5-> Cycle Detection in Undirected Graph using DFS");
-            System.out.println("Press 6 -> Exit");
+            System.out.println("Press 5 -> Cycle Detection in Undirected Graph using DFS");
+            System.out.println("Press 6 -> Bipartite Graph or Graph Coloring ");
+            System.out.println("Press 7 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
@@ -179,7 +211,16 @@ public class graphRepresentation {
                     System.out.println("Cycle Detection in Undirected Graph using DFS");
                     System.out.println(g.isCycleDfs(v, adj));
                 }
-                case 6 -> {
+                case 6->{
+                    System.out.println("Bipartite Graph or Graph Coloring");
+                    if(g.checkBipartite(adj ,v)){
+                        System.out.println("Yes Bipartite");
+                    }
+                    else{
+                        System.out.println("Not Bipartite");
+                    }
+                }
+                case 7-> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
