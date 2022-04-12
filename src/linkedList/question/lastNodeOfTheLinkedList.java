@@ -43,7 +43,8 @@ class last{
 //        tem.next=slow.next;
 //        System.out.println("After deletion the middle node");
 //        traversal();
-        System.out.println("The last node of the linked List is "+fast.data);
+        System.out.println("The first node of the linked List is ->"+head.data);
+        System.out.println("The last node of the linked List is ->"+fast.data);
     }
 }
 public class lastNodeOfTheLinkedList {
