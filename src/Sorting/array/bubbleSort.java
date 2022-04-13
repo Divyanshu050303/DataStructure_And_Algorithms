@@ -29,13 +29,13 @@ class sort
     }
     public void bubble()
     {
-        for (int out = arr.length-1; out >1 ; out--) {
-            for (int in = 0; in < out; in++) {
-                if(arr[in]>arr[in+1])
+        for (int i = 0; i < size-1; i++){
+            for (int j = 0; j < size-i-1; j++){
+                if(arr[j]>arr[j+1])
                 {
-                    int temp=arr[in];
-                    arr[in]=arr[in+1];
-                    arr[in+1]=temp;
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
                 }
             }
         }
