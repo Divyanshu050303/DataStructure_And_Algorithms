@@ -14,10 +14,12 @@ A graph consists of a finite set of vertices and set of edge which connect a pai
  4->Graphs are used to find THE SHORTEST PATH in ROAD or a NETWORK;
  */
 class graphs{
+    // this method is used to add the edges in the graph
     public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v){
         adj.get(u).add(v);
         adj.get(v).add(u);
     }
+    // this method is used to print the graph node
     public static void printGraph(ArrayList<ArrayList<Integer>> adj){
         for (int i = 0; i <adj.size() ; i++) {
             System.out.print(i);
@@ -27,6 +29,7 @@ class graphs{
             System.out.println();
         }
     }
+    // this method is used find the bfs of the graph , bfs is used level order traversal to traverse the node in the graph
     public ArrayList<Integer> bfsOfGraph(int v, ArrayList<ArrayList<Integer>> adj){
         ArrayList<Integer> bfs=new ArrayList<>();
         boolean[] vis =new boolean[v+1];
@@ -45,6 +48,7 @@ class graphs{
                 }
         return bfs;
     }
+    // this method is used to find the dfs of the graph , dfs is used inOrder traversal to traverse the node in the graph
     public void dfs(int node, boolean []vis, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> storeDfs){
         storeDfs.add(node);
         vis[node]=true;
@@ -64,6 +68,8 @@ class graphs{
         }
         return storeDFS;
     }
+    // for here we check the cycle in the graph
+
     static class  Node{
         int first, second;
         Node(int first, int second){
@@ -105,6 +111,7 @@ class graphs{
             }
             return false;
         }
+        //Cycle Detection in Undirected Graph using DFS
         public boolean checkForCycle1(int node, int parent, boolean[]vis, ArrayList<ArrayList<Integer>> adj){
         vis[node]=true;
         for(Integer it:adj.get(node)){
@@ -130,6 +137,7 @@ class graphs{
             }
             return false;
         }
+        //here we check Bipartite using bfs  in the graph
         public boolean bfsCheck(ArrayList<ArrayList<Integer>>adj, int node, int[]color){
         Queue<Integer> q=new LinkedList<>();
         q.add(node);
@@ -162,6 +170,35 @@ class graphs{
             }
         return true;
     }
+    //Check Cycle for Directed Graph
+    public boolean CheckCycle(int node, ArrayList<ArrayList<Integer>>adj, int[]vis, int []dfsVis){
+        vis[node]=1;
+        dfsVis[node]=1;
+        for(Integer it:adj.get(node)){
+            if(vis[it]==0) {
+                if (CheckCycle(it, adj, vis, dfsVis)) {
+                    return true;
+                }
+            }
+                else if(dfsVis[it]==1){
+                    return true;
+                }
+        }
+        dfsVis[node]=0;
+        return false;
+    }
+    public boolean IsCycle(int n, ArrayList<ArrayList<Integer>>adj){
+        int []vis=new int[n];
+        int []dfsVis=new int[n];
+        for (int i = 0; i <n ; i++) {
+            if(vis[i]==0){
+                if(CheckCycle(i, adj, vis, dfsVis)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 public class graphRepresentation {
     public static void main(String[] args) {
@@ -187,7 +224,8 @@ public class graphRepresentation {
             System.out.println("Press 4 -> Dfs Of The Graph");
             System.out.println("Press 5 -> Cycle Detection in Undirected Graph using DFS");
             System.out.println("Press 6 -> Bipartite Graph or Graph Coloring ");
-            System.out.println("Press 7 -> Exit");
+            System.out.println("Press 7 -> Check Cycle for Directed Graph");
+            System.out.println("Press 8 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
@@ -220,7 +258,11 @@ public class graphRepresentation {
                         System.out.println("Not Bipartite");
                     }
                 }
-                case 7-> {
+                case 7->{
+                    System.out.println("Check Cycle for Directed Graph");
+                    System.out.println(g.IsCycle(v, adj));
+                }
+                case 8-> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
