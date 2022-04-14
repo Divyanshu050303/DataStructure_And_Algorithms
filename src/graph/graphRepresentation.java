@@ -96,7 +96,6 @@ class graphs{
         }
         return false;
     }
-
         public boolean isCycle(int v, ArrayList<ArrayList<Integer>> adj){
             boolean []vis=new boolean[v];
             Arrays.fill(vis, false);
