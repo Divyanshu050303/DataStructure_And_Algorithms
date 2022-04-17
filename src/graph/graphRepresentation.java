@@ -198,6 +198,34 @@ class graphs{
         }
         return false;
     }
+
+// Topological sorting by dfs
+    public void findTopoSort(int node, int []vis, ArrayList<ArrayList<Integer>> adj, Stack<Integer>st){
+        vis[node]=1;
+        for (Integer it:adj.get(node)){
+            if(vis[it]==0){
+                findTopoSort(it, vis, adj, st);
+            }
+        }
+        st.push(node);
+    }
+    public int[] topoSort(int n, ArrayList<ArrayList<Integer>>adj){
+        Stack<Integer> st=new Stack<>();
+        int []vis=new int[n];
+        for (int i = 0; i <n ; i++) {
+            if(vis[i]==0){
+                findTopoSort(i, vis, adj, st);
+            }
+        }
+        int []topo=new int[n];
+        int ind=0;
+        while(!st.isEmpty()){
+            int t=st.pop();
+            topo[ind]=t;
+            ind++;
+        }
+        return topo;
+    }
 }
 public class graphRepresentation {
     public static void main(String[] args) {
@@ -224,7 +252,8 @@ public class graphRepresentation {
             System.out.println("Press 5 -> Cycle Detection in Undirected Graph using DFS");
             System.out.println("Press 6 -> Bipartite Graph or Graph Coloring ");
             System.out.println("Press 7 -> Check Cycle for Directed Graph");
-            System.out.println("Press 8 -> Exit");
+            System.out.println("Press 8 -> For Topological sorting by dfs");
+            System.out.println("Press 9 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
@@ -261,7 +290,11 @@ public class graphRepresentation {
                     System.out.println("Check Cycle for Directed Graph");
                     System.out.println(g.IsCycle(v, adj));
                 }
-                case 8-> {
+                case 8->{
+                    System.out.println("Topological Sorting by dfs");
+                    System.out.println(Arrays.toString(g.topoSort(v, adj)));
+                }
+                case 9-> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
