@@ -200,7 +200,7 @@ class graphs{
     }
 
 // Topological sorting by dfs
-    public void findTopoSort(int node, int []vis, ArrayList<ArrayList<Integer>> adj, Stack<Integer>st){
+    private void findTopoSort(int node, int []vis, ArrayList<ArrayList<Integer>> adj, Stack<Integer>st){
         vis[node]=1;
         for (Integer it:adj.get(node)){
             if(vis[it]==0){
