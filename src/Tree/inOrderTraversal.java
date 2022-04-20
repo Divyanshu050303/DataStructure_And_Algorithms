@@ -12,10 +12,9 @@ public class inOrderTraversal {
     }
 
     public static void main(String[] args) {
-        int []node={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        int []node={1, 2, 3, -1, -1, 3, -1, -1, 5, -1, 6, -1, -1};
         inOrderTraversal treeTime=new inOrderTraversal();
         binary.Node root1=binary.buildTree(node);
-        treeTime.inOrder(root1);
 
 
     }
