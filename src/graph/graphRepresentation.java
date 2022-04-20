@@ -257,6 +257,34 @@ class graphs{
         }
         return true;
     }
+    public boolean checkCyclicDirectedBfs(int n, ArrayList<ArrayList<Integer>>adj){
+        int []to=new int[n];
+        int []inDegree=new int[n];
+        for (int i = 0; i <n ; i++) {
+            for(Integer it:adj.get(i)){
+                inDegree[it]++;
+            }
+        }
+        Queue<Integer> que=new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            if(inDegree[i]==0){
+                que.add(i);
+            }
+        }
+        int cnt=0;
+        while(!que.isEmpty()){
+            Integer node= que.poll();
+            cnt++;
+            for(Integer it:adj.get(node)){
+                inDegree[it]--;
+                if(inDegree[it]==0){
+                    que.add(it);
+                }
+            }
+        }
+        if(cnt==n)return false;
+        return true;
+    }
 }
 public class graphRepresentation {
     public static void main(String[] args) {
@@ -285,7 +313,8 @@ public class graphRepresentation {
             System.out.println("Press 7 -> Check Cycle for Directed Graph");
             System.out.println("Press 8 -> For Topological sorting by dfs");
             System.out.println("Press 9 -> For Topological sorting by bfs");
-            System.out.println("Press 10 -> Exit");
+            System.out.println("Press 10 -> Cycle Detection in Directed Graph using BFS");
+            System.out.println("Press 11 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
@@ -330,7 +359,11 @@ public class graphRepresentation {
                     System.out.println("Topological Sorting by bfs");
                     System.out.println(g.topoSortBFS(v, adj));
                 }
-                case 10-> {
+                case 10->{
+                    System.out.println("Cycle Detection in Directed Graph using BFS");
+                    System.out.println(g.checkCyclicDirectedBfs(v, adj));
+                }
+                case 11-> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
