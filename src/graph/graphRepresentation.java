@@ -285,6 +285,28 @@ class graphs{
         if(cnt==n)return false;
         return true;
     }
+    public void shortestPath(ArrayList<ArrayList<Integer>>adj, int n, int src){
+        int []dis=new int[n];
+        for(int i=0;i<n;i++){
+            dis[i]=100000;
+        }
+        Queue<Integer> que=new LinkedList<>();
+        dis[src]=0;
+        que.add(src);
+        while(!que.isEmpty()){
+            int node= que.poll();
+            for(int it:adj.get(node)){
+                if(dis[node]+1<dis[it]){
+                    dis[it]=dis[node]+1;
+                    que.add(it);
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            System.out.print(dis[i]+" ");
+        }
+        System.out.println();
+    }
 }
 public class graphRepresentation {
     public static void main(String[] args) {
@@ -314,7 +336,8 @@ public class graphRepresentation {
             System.out.println("Press 8 -> For Topological sorting by dfs");
             System.out.println("Press 9 -> For Topological sorting by bfs");
             System.out.println("Press 10 -> Cycle Detection in Directed Graph using BFS");
-            System.out.println("Press 11 -> Exit");
+            System.out.println("Press 11 -> Shortest Path in Undirected Graph with Unit Weights");
+            System.out.println("Press 12 -> Exit");
             System.out.println("Enter the choice");
             int choice=sc.nextInt();
             switch (choice) {
@@ -363,7 +386,11 @@ public class graphRepresentation {
                     System.out.println("Cycle Detection in Directed Graph using BFS");
                     System.out.println(g.checkCyclicDirectedBfs(v, adj));
                 }
-                case 11-> {
+                case 11->{
+                    System.out.println("Shortest Path in Undirected Graph with Unit Weights");
+                    g.shortestPath( adj, v, 0);
+                }
+                case 12-> {
                     System.out.println("Thanks");
                     System.exit(0);
                 }
