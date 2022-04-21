@@ -7,7 +7,7 @@ public class sumOfNode {
         }
         int sumOfLeftChild=sum(root.leftChild);
         int sumOfRightChild=sum(root.rightChild);
-        return sumOfLeftChild+sumOfRightChild+1;
+        return sumOfLeftChild+sumOfRightChild+root.data;
     }
 
     public static void main(String[] args) {
