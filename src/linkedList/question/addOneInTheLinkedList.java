@@ -86,6 +86,5 @@ public class addOneInTheLinkedList {
         add.reverseList(add.head);
         System.out.println("After add 1 in the LinkedList");
         add.addOne(add.head);
-
     }
 }
