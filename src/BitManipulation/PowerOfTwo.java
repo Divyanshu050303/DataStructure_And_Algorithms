@@ -1,7 +1,7 @@
 package BitManipulation;
 
 import java.util.Scanner;
-
+//https://leetcode.com/problems/power-of-two/submissions/
 class power{
     int n;
     public boolean two(){
