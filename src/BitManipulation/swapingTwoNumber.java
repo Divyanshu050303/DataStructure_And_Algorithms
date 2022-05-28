@@ -11,6 +11,7 @@ public class swapingTwoNumber {
           System.out.println("Enter the second number");
           b= sc.nextInt();
           System.out.println("Value of a and b before swapping "+a+" "+b);
+
           a=a^b;
           b=a^b;
           a=a^b;
