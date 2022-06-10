@@ -30,7 +30,6 @@ class circular {
                 node=node.next;
             }while (node!=head);
             System.out.println();
-
         }
     }
     public void delete(int val)
