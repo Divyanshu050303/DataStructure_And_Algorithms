@@ -108,7 +108,6 @@ class doubly
             System.out.println("List is empty");
             return;
         }
-
             head=head.next;
             head.previous=null;
             System.out.println(val);
