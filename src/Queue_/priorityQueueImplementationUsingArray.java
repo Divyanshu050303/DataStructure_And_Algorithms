@@ -10,7 +10,6 @@ class priority
      maxPriority=10;
      array=new int[maxPriority];
      size=0;
-
  }
  public void enQueue(int val)
  {
@@ -30,11 +29,9 @@ class priority
          {
              break;
          }
-
      }
      array[i+1]=val;
      size++;
-
  }
  public void traverse()
  {
@@ -46,7 +43,6 @@ class priority
  {
      System.out.println(array[--size]+" removed");
  }
-
 }
 public class priorityQueueImplementationUsingArray {
     public static void main(String[] args) {
