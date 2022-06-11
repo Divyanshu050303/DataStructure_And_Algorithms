@@ -610,137 +610,113 @@ public class BinaryTree {
             System.out.println();
             System.out.println("Enter you choice");
             int choice=sc.nextInt();
-            switch (choice){
-
-                case 1:{
+            switch (choice) {
+                case 1 -> {
                     System.out.println("PerOrder element print");
                     tree.preOrder(root);
-                    break;
                 }
-                case 2:{
+                case 2 -> {
                     System.out.println("InOrder element print");
                     tree.inOrder(root);
-                    break;
                 }
-                case 3:{
+                case 3 -> {
                     System.out.println("PostOrder element print");
                     tree.postOrder(root);
-                    break;
                 }
-                case 4:{
+                case 4 -> {
                     System.out.println("Level order element print");
                     tree.levelOrder(root);
-                    break;
                 }
-                case 5:{
+                case 5 -> {
                     System.out.println("Count the node of the tree");
                     System.out.println(tree.countOfNode(root));
-                    break;
                 }
-                case 6:{
+                case 6 -> {
                     System.out.println("Sum of the tree");
                     System.out.println(tree.sumOfNode(root));
-                    break;
                 }
-                case 7:{
+                case 7 -> {
                     System.out.println("Height of the tree");
                     System.out.println(tree.height(root));
-                    break;
                 }
-                case 8:{
+                case 8 -> {
                     System.out.println("Diameter of the tree Approach 1");
                     System.out.println(tree.diameter(root));
-                    break;
                 }
-                case 9:{
+                case 9 -> {
                     System.out.println("Diameter of the tree Approach 2");
                     System.out.println(tree.diameterApproach2OofN2(root).diameter);
-                    break;
                 }
-                case 10:{
+                case 10 -> {
                     System.out.println("Minimum value in the tree");
                     System.out.println(tree.Minimum(root).data);
-                    break;
                 }
-                case 11:{
+                case 11 -> {
                     System.out.println("inOrderMorris traversal is :");
                     tree.inOrderMorris(root);
-                    break;
                 }
-                case 12:{
+                case 12 -> {
                     System.out.println("preOrderMorris traversal is :");
                     tree.preOrderMorris(root);
-                    break;
                 }
-                case 13:{
+                case 13 -> {
                     System.out.println("After the converting ");
                     tree.inOrderLinkedList(root);
                     tree.traversalLinkedList();
-                    break;
                 }
-                case 14:{
+                case 14 -> {
                     System.out.println("After Converting");
                     tree.inOrderDoublyLinkedList(root);
                     tree.traverseDoublyLinkedList();
-                    break;
                 }
-                case 15:{
-                    System.out.println(tree.searchNode(root, 7)+" Node present in the tree");
-                    break;
+                case 15 -> {
+                    System.out.println(tree.searchNode(root, 7) + " Node present in the tree");
                 }
-                case 16: {
+                case 16 -> {
                     System.out.println("Before delete the node the tree is : ");
                     tree.inOrder(root);
                     System.out.println("\n After  delete the node from the tree");
                     tree.DeleteTheNode(root, 20);
                     tree.inOrder(root);
-                    break;
                 }
-                case 17:{
+                case 17 -> {
                     System.out.println("Vertical order traversal");
                     System.out.println(tree.verticalOrderTraversal(root));
                     break;
                 }
-                case 18:{
+                case 18 -> {
                     System.out.println("Zigzag order traversal");
                     tree.ZigZagTraversal(root);
-                    break;
                 }
-                case 19:{
+                case 19 -> {
                     System.out.println("Top view of the tree is ...");
                     tree.topViewOfTree(root);
-                    break;
                 }
-                case 20:{
+                case 20 -> {
                     System.out.println("Print Right View ...");
                     tree.rightArrayList(root);
                     System.out.println();
-                    break;
                 }
-                case 21:{
+                case 21 -> {
                     System.out.println("Print Left View ...");
                     tree.LeftArrayList(root);
                     System.out.println();
-                    break;
                 }
-                case 22:{
+                case 22 -> {
                     System.out.println("Post order tree pruning ...");
                     System.out.println(tree.treePruning(root).data);
-                    break;
                 }
-                case 23:{
+                case 23 -> {
                     System.out.println("Lowest Common Ancestor is ...");
-                    binary.Node p=new binary.Node(2);
-                    binary.Node q=new binary.Node(6);
-                    System.out.println(tree.lowestCommonAncestor(root,p, q ));
-                    break;
+                    binary.Node p = new binary.Node(2);
+                    binary.Node q = new binary.Node(6);
+                    System.out.println(tree.lowestCommonAncestor(root, p, q));
                 }
-                case 24:{
+                case 24 -> {
                     System.out.println("Maximum Path Sum is ->");
                     System.out.println(tree.MaxPathSum(root));
-                    break;
                 }
-                case 25:{
+                case 25 -> {
                     System.exit(0);
                 }
             }
