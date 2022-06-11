@@ -6,9 +6,7 @@ class circular
 
     class Node {
         int value;
-
         Node next;
-
         public Node(int value) {
             this.value = value;
             this.next = null;
@@ -62,7 +60,6 @@ class circular
         }
             System.out.print(temp.value+"\n");
     }
-
     }
 }
 public class circularQueueUsingLinkedList {
@@ -71,7 +68,6 @@ public class circularQueueUsingLinkedList {
         Scanner sc=new Scanner(System.in);
         while (true)
         {
-
             System.out.println("Press 1 for insert"+"\n Press 2 for delete"+"\n Press 3 for traverse"+"\n Press 4 for exit");
             int choice=sc.nextInt();
             switch (choice) {
@@ -79,7 +75,6 @@ public class circularQueueUsingLinkedList {
                     System.out.println("Enter the data");
                     int data=sc.nextInt();
                     c.enQueue(data);
-
                     break;
                 case 2: c.deQueue();
                     break;
@@ -90,7 +85,6 @@ public class circularQueueUsingLinkedList {
                 default:
                     System.out.println("Wrong Choice !");
             }
-
         }
     }
 }
