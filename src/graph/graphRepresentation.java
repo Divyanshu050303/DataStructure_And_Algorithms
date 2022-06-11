@@ -282,8 +282,7 @@ class graphs{
                 }
             }
         }
-        if(cnt==n)return false;
-        return true;
+        return cnt != n;
     }
     public void shortestPath(ArrayList<ArrayList<Integer>>adj, int n, int src){
         int []dis=new int[n];
