@@ -18,7 +18,6 @@ class heap{
         sort();
         System.out.println("After the sorting");
         display(array);
-
     }
     public void sort(){
         for (int i=size/2-1;i>=0;i--){
@@ -47,7 +46,6 @@ class heap{
             array[largest]=temp;
             heapSorting(array, n, largest);
         }
-
     }
     public void display(int []array){
         for (int i:array){
