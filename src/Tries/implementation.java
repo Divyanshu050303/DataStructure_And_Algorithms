@@ -47,10 +47,7 @@ public class implementation {
             }
             node=node.get(word.charAt(i));
         }
-        if(node.isEnd()){
-            return true;
-        }
-        return false;
+        return node.isEnd();
     }
     public static boolean startsWith(String prefix){
         Node node=root;
@@ -70,10 +67,10 @@ public class implementation {
         implementation im=new implementation();
         for(int i=0;i<n;i++){
             if(type[i]==1){
-                im.insert(arr[i]);
+                insert(arr[i]);
             }
             else if(type[i]==2){
-                if(im.search(arr[i])){
+                if(search(arr[i])){
                     System.out.println("true");
                 }
                 else {
@@ -81,7 +78,7 @@ public class implementation {
                 }
             }
             else{
-                if(im.startsWith(arr[i])){
+                if(startsWith(arr[i])){
                     System.out.println("true");
                 }
                 else{
