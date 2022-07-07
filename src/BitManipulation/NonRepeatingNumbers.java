@@ -26,4 +26,9 @@ class repeating{
     }
 }
 public class NonRepeatingNumbers {
+    public static void main(String[] args) {
+        repeating r=new repeating();
+        r.insert();
+        r.manipulation();
+    }
 }
