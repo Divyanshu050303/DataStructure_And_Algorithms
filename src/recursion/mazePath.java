@@ -1,24 +1,26 @@
 package recursion;
 class path{
-    public void ma(String p,int row, int column )
+    int c=0;
+    public int ma(int row, int column )
     {
         if(row==1 && column==1)
         {
-            System.out.println(p);
-            return;
+            return 0;
         }
         if(row>1){
-            ma(p+"D", row-1, column);
+            ma( row-1, column);
         }
         if(column>1){
-            ma(p+"R", row, column-1);
+            ma( row, column-1);
         }
+        return c;
     }
+
 }
 
 public class mazePath {
     public static void main(String[] args) {
         path p=new path();
-        p.ma("", 3, 3);
+        p.ma(3, 7);
     }
 }
