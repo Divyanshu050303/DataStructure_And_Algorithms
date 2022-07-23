@@ -23,11 +23,10 @@ class set
 public class subSet {
     public static void main(String[] args) {
         set s=new set();
-        int []a={1, 2,3};
+        int []a={1, 2,2};
         List<List<Integer>> ans=s.sub(a);
         for (List<Integer> list:ans) {
             System.out.println(list);
-
         }
     }
 }
