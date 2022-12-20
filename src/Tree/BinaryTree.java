@@ -576,7 +576,7 @@ public class BinaryTree {
         else if(chi==2){
 
                 int []nodes={1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-                root=tree.buildTree(nodes);
+                root= binary.buildTree(nodes);
         }
         else {
             System.out.println("Wrong choice");
