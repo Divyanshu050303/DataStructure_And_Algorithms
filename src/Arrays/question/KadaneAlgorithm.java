@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 //https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 class kadane{
-    int []arr;
+    int []arr={-2,1,-3,4,-1,2,1,-5,4};
     int size;
     public void insert(){
-        System.out.println("Enter the size of the array");
-        Scanner sc=new Scanner(System.in);
-        size=sc.nextInt();
-        System.out.println("Enter the element in the array");
-        arr=new int[size];
-        for (int i = 0; i <size ; i++) {
-            arr[i]= sc.nextInt();
-        }
+//        System.out.println("Enter the size of the array");
+//        Scanner sc=new Scanner(System.in);
+//        size=sc.nextInt();
+//        System.out.println("Enter the element in the array");
+//        arr=new int[size];
+//        for (int i = 0; i <size ; i++) {
+//            arr[i]= sc.nextInt();
+//        }
         traversal();
         Kadane();
     }
