@@ -1,7 +1,7 @@
-// Java program to sort link list
+package Sorting.linkedList;// Java program to sort link list
 // using insertion sort
 
-public class LinkedlistIS
+ class LinkedlistIS
 {
 	node head;
 	node sorted;
@@ -84,7 +84,7 @@ public class LinkedlistIS
 			head = head.next;
 		}
 	}
-	
+
 	// Driver program to test above functions
 	public static void main(String[] args)
 	{
@@ -103,3 +103,6 @@ public class LinkedlistIS
 }
 
 // This code is contributed by Rishabh Mahrsee
+class insertionsort{
+
+}
