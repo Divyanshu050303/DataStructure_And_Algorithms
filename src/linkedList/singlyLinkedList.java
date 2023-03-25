@@ -1,5 +1,5 @@
 package linkedList;
-import java.nio.file.ClosedFileSystemException;
+
 import java.util.Scanner;
 class linkedList
 {
@@ -45,7 +45,6 @@ class linkedList
         tail.next=node;//here we point the new implement node that is node
         tail=node;// but tail always point the last element, so we made new implement node to the tail
         size++;// increase the size one
-
     }
     public void insert(int val, int index)// this function is used to insert the value at a particular index
     {
@@ -66,7 +65,6 @@ class linkedList
         Node node = new Node(val, temp.next);
         temp.next=node;// here we insert the indexed element
         size++;
-
     }
     public int deleteFirst()// this function is used to delete the first element form the linked list
     {
@@ -128,7 +126,6 @@ class linkedList
             node=node.next;
         }
         return null;
-
     }
     public void display()
     {
@@ -148,7 +145,6 @@ public class singlyLinkedList {
         boolean t=true;
         while (t)
         {
-
             System.out.println("Press 1 -> Insert the value at the first index");
             System.out.println("Press 2 -> Insert the value at the Last index");
             System.out.println("Press 3 -> Insert the value at the particular index");
@@ -175,7 +171,6 @@ public class singlyLinkedList {
                     ll.insertLast(value);
                     break;
                 }
-
                 case 3: {
                     System.out.println("Enter the index where you want to insert");
                     int index = sc.nextInt();
@@ -188,16 +183,13 @@ public class singlyLinkedList {
                     System.out.println(ll.deleteFirst());
                     break;
                 }
-
                 case 5: {
                     System.out.println(ll.deleteLast());
                     break;
                 }
-
                 case 6: {
                     System.out.println("Enter the index where you want to insert");
                     int index = sc.nextInt();
-
                     System.out.println(ll.delete(index));
                     break;
                 }
@@ -227,16 +219,12 @@ public class singlyLinkedList {
                 {
                     t=false;
                     break;
-
                 }
                 default:
                 {
                     System.out.println("Wrong choice ...");
                 }
             }
-
-
-
         }
     }
 }
