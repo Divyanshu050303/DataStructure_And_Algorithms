@@ -56,6 +56,7 @@ public class oddEvenLinkedList {
         d.insert(3);
         d.insert(4);
         d.insert(5);
+        d.insert(6);
         System.out.println("Actual linked list");
         d.traversal();
         System.out.println("After the performed the operation");
