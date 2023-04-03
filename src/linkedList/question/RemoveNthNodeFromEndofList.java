@@ -43,6 +43,29 @@ class tiem{
                  temp=temp.next;
              }
          }
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode time=head;
+        int c=0;
+        while(time!=null){
+            time=time.next;
+            c++;
+        }
+
+        int index=c-n;
+        if(index==0){
+            head=head.next;
+        }
+        else{
+
+            time=head;
+            while(index-1!=0){
+                time=time.next;
+                index--;
+            }
+            time.next=time.next.next;
+        }
+        return head;
+    }
     public Node removeNthFromEnd( int n) {
         if(head.next==null)
         {
