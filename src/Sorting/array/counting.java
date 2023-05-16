@@ -28,7 +28,7 @@ class time{
 }
 public class counting {
     public static void main(String[] args) {
-        int []arr={170, 45, 75, 96, 802, 24, 2, 66};
+        int []arr={170, 45, 75, 96, 24, 2, 66};
         time t=new time();
         t.countingSort(arr);
         for(int i:arr){
