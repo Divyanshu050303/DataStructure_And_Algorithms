@@ -12,6 +12,7 @@ public class arrayList {
         a.add(3);
         a.add(4);
         a.add(15);
+        a.add(15);
         for (int i = 0; i <4; i++) {
             a.add(a.get(i));
 
